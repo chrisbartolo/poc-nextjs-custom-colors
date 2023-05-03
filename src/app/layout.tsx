@@ -4,10 +4,13 @@ import {Inter} from 'next/font/google'
 import StyledJsxRegistry from './registry';
 import {getAccessibleColor, getRGBColor} from "@/app/colorUtil";
 import config from "tailwindcss/defaultConfig";
+import {DEFAULT_THEME} from "@/colorSwitcher";
+import {useEffect, useState} from "react";
+import {applyTheme} from "@/colorSwitcher/utils";
 
 const inter = Inter({subsets: ['latin']})
 
-const primaryColor = getRGBColor("#fc0000", "primary")
+const primaryColor = getRGBColor("#257365", "primary")
 const a11yColor = getRGBColor(getAccessibleColor("#000000"), "a11y")
 
 export default function RootLayout({
@@ -15,6 +18,7 @@ export default function RootLayout({
                                    }: {
     children: React.ReactNode
 }) {
+
     return (
         <html lang="en">
         <body className={inter.className}>
