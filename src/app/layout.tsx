@@ -7,7 +7,7 @@ import config from "tailwindcss/defaultConfig";
 
 const inter = Inter({subsets: ['latin']})
 
-const primaryColor = getRGBColor("#d30505", "primary")
+const primaryColor = getRGBColor("#fc0000", "primary")
 const a11yColor = getRGBColor(getAccessibleColor("#000000"), "a11y")
 
 export default function RootLayout({

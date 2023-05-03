@@ -11,6 +11,9 @@ $ npx create-next-app@latest
 ```
 ```
 npm install --save-dev sass
+npm install -D postcss-import
+npm install -D postcss-nesting
+npm install -D autoprefixer
 ```
 
 change app/globals.css to app/globals.scss
@@ -53,3 +56,5 @@ extend: {
     },
 }
 ```
+
+to observe dynamic color changes for themeing, in layout.tsx change the hex of the `primaryColor` function call
