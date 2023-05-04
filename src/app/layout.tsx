@@ -2,11 +2,10 @@
 import './globals.scss'
 import {Inter} from 'next/font/google'
 import StyledJsxRegistry from './registry';
-import {getAccessibleColor, getRGBColor} from "@/app/colorUtil";
 import config from "tailwindcss/defaultConfig";
 import {DEFAULT_THEME} from "@/colorSwitcher";
 import {useEffect, useState} from "react";
-import {applyTheme} from "@/colorSwitcher/utils";
+import {applyTheme, getAccessibleColor, getRGBColor} from "@/colorSwitcher/utils";
 
 const inter = Inter({subsets: ['latin']})
 
