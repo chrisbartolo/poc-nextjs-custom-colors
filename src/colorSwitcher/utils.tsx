@@ -94,6 +94,22 @@ export const getRGBColorRaw = (hex: string | undefined) => {
     }
 }
 
+export const rawThemeInStyle = (theme: string): string => {
+    const themeObject: IMappedTheme = mapTheme(themes[theme]);
+    if (!themeObject) return "";
+
+    const root = document.documentElement;
+    const primaryColor = getRGBColor("#d30505", "primary")
+    let presetColors = "";
+    Object.keys(themeObject).forEach((property) => {
+        if (property === 'name') {
+            return;
+        }
+        presetColors += ` ${property}:${getRGBColorRaw(themeObject[property])}; `
+    });
+    return `:root {${presetColors}`;
+};
+
 /////////////////////////////////////////////////////////////////////
 // Determine the accessible color of text
 /////////////////////////////////////////////////////////////////////
