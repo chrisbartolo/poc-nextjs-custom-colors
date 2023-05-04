@@ -1,4 +1,4 @@
-
+import chroma from "chroma-js";
 import { themes } from './index';
 
 export interface ITheme {
@@ -19,9 +19,9 @@ export const mapTheme = (variables: ITheme): IMappedTheme => {
         '--color-secondary': variables.secondary || '',
         '--color-positive': variables.positive || '',
         '--color-negative': variables.negative || '',
-        '--color-text-primary': variables.textPrimary || '',
-        '--background-primary': variables.backgroundPrimary || '',
-        '--background-sec': variables.backgroundSecondary || '',
+        '--color-customone': variables.customone || '',
+        '--color-customtwo': variables.customtwo || '',
+        '--color-customthree': variables.customthree || '',
     };
 };
 
@@ -34,6 +34,10 @@ export const extend = (
 
 export const applyTheme = (theme: string): void => {
     const themeObject: IMappedTheme = mapTheme(themes[theme]);
+    applyThemeObject(themeObject);
+};
+
+export const applyThemeObject = (themeObject: IMappedTheme): void => {
     if (!themeObject) return;
 
     const root = document.documentElement;
@@ -46,7 +50,24 @@ export const applyTheme = (theme: string): void => {
         console.log(`setProperty: ${property}  and object ${getRGBColorRaw(themeObject[property])}`);
         root.style.setProperty(property, getRGBColorRaw(themeObject[property]));
     });
-};
+}
+
+export const applyThemeFromColor = (primary: string, secondary: string): void => {
+    const colors = chroma.scale([primary, secondary])
+        .mode('lch').colors(7)
+    console.log(colors);
+
+    const theme = {
+        primary: colors[0],
+        secondary: colors[1],
+        negative: colors[2],
+        positive: colors[3],
+        customone: colors[4],
+        customtwo: colors[5],
+        customthree: colors[6],
+    }
+    applyThemeObject(mapTheme(theme));
+}
 
 /////////////////////////////////////////////////////////////////////
 // Change hex color into RGB /////////////////////////////////////////////////////////////////////

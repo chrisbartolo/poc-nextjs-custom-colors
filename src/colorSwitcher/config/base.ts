@@ -3,7 +3,7 @@ export default {
     secondary: '#254E70',
     negative: '#e45b78',
     positive: '#A3D9B1',
-    textPrimary: '#333',
-    backgroundPrimary: '#efefef',
-    backgroundSecondary: '#F6F9FC',
+    customone: '#333',
+    customtwo: '#efefef',
+    customthree: '#F6F9FC',
 };

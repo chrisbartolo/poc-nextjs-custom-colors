@@ -16,6 +16,12 @@ module.exports = {
       },
       colors: {
         primary: withOpacity("--color-primary"),
+        secondary: withOpacity("--color-secondary"),
+        positive: withOpacity("--color-positive"),
+        negative: withOpacity("--color-negative"),
+        customone: withOpacity("--color-customone"),
+        customtwo: withOpacity("--color-customtwo"),
+        customthree: withOpacity("--color-customthree")
       },
     },
   },
